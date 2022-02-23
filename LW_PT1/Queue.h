@@ -10,10 +10,11 @@ struct elem
 class queue
 {
 private:
-	elem* head;
-	elem* tail;
+	
 	int elCount;
 protected:
+	elem* head;
+	elem* tail;
 	///Something...
 public:
 	queue(void);
@@ -23,10 +24,11 @@ public:
 	void listQueue(void);
 	friend void copy(queue& sou, queue& dest);
 	friend void merge(queue& sou1, queue& sou2, queue& dest);
+	friend int getrange(queue& q);
 
 };
 void copy(queue& sou, queue& dest);
 void merge(queue& sou1, queue& sou2, queue& dest);
-
+int getrange(queue& q);
 
 #endif

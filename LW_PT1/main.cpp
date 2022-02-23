@@ -1,4 +1,7 @@
 #include <iostream>
+#include "QueuePriv.h"
+#include "QueueProt.h"
+#include "QueuePub.h"
 #include "Queue.h"
 using namespace std;
 int main(void)
@@ -6,7 +9,7 @@ int main(void)
 	int sw;
 	queue ob1, ob2, ob3;
 	int val;
-	cout << "Mode: 0-quit, 1-add element to queue1, 2-eject element from queue1, 3-list queue1; 4-copy queue1 to queue2; 5-merge queues;" << endl;
+	cout << "Mode: 0-quit, 1-add element to queue1, 2-eject element from queue1, 3-list queue1; 4-copy queue1 to queue2; 5-get range;" << endl;
 	cin >> sw;
 	while (sw)
 	{
@@ -31,9 +34,9 @@ int main(void)
 			ob2.listQueue();
 			break;
 		case 5:
-			merge(ob1, ob2, ob3);
-			cout << "Merged queue:" << endl;
-			ob3.listQueue();
+			
+			cout << "Range: " << getrange(ob1) << endl;
+			//ob3.listQueue();
 			break;
 		default:
 			cout << "Uncorrect mode" << endl;
