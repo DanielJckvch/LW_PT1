@@ -6,6 +6,7 @@ struct elem
 	elem* prev;
 	int val;
 };
+
 class queue
 {
 private:
@@ -20,9 +21,12 @@ public:
 	void addElem(int);
 	void ejectElem(void);
 	void listQueue(void);
+	friend void copy(queue& sou, queue& dest);
+	friend void merge(queue& sou1, queue& sou2, queue& dest);
 
 };
-
+void copy(queue& sou, queue& dest);
+void merge(queue& sou1, queue& sou2, queue& dest);
 
 
 #endif

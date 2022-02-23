@@ -4,9 +4,9 @@ using namespace std;
 int main(void)
 {
 	int sw;
-	queue ob;
+	queue ob1, ob2, ob3;
 	int val;
-	cout << "Mode: 0-quit, 1-add element, 2-eject element, 3-list queue;" << endl;
+	cout << "Mode: 0-quit, 1-add element to queue1, 2-eject element from queue1, 3-list queue1; 4-copy queue1 to queue2; 5-merge queues;" << endl;
 	cin >> sw;
 	while (sw)
 	{
@@ -16,13 +16,24 @@ int main(void)
 		case 1:
 			cout << "Enter value:" << endl;
 			cin >> val;
-			ob.addElem(val);
+			ob1.addElem(val);
+			cout << endl;
 			break;
 		case 2:
-			ob.ejectElem();
+			ob1.ejectElem();
 			break;
 		case 3:
-			ob.listQueue();
+			ob1.listQueue();
+			break;
+		case 4:
+			copy(ob1, ob2);
+			cout << "Queue2:" << endl;
+			ob2.listQueue();
+			break;
+		case 5:
+			merge(ob1, ob2, ob3);
+			cout << "Merged queue:" << endl;
+			ob3.listQueue();
 			break;
 		default:
 			cout << "Uncorrect mode" << endl;

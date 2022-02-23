@@ -29,7 +29,7 @@ void queue::addElem(int x)
 	tail->val = x;
 	tail->prev = NULL;
 	elCount++;
-	cout << endl;
+	
 }
 void queue::ejectElem(void)
 {
@@ -68,5 +68,30 @@ void queue::listQueue(void)
 		cout << endl;
 		ptr = ptr->prev;
 		i++;
+	}
+}
+
+void copy(queue& sou, queue& dest)
+{
+	elem* ptr = sou.head;
+	while (ptr)
+	{
+		dest.addElem(ptr->val);
+		ptr = ptr->prev;
+	}
+}
+void merge(queue& sou1, queue& sou2, queue& dest)
+{
+	elem* ptr = sou1.head;
+	while (ptr)
+	{
+		dest.addElem(ptr->val);
+		ptr = ptr->prev;
+	}
+	ptr = sou2.head;
+	while (ptr)
+	{
+		dest.addElem(ptr->val);
+		ptr = ptr->prev;
 	}
 }
