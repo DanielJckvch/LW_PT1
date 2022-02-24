@@ -71,72 +71,48 @@ void queue::listQueue(void)
 	}
 }
 
-void copy(queue& sou, queue& dest)
+int queue::getCount(void)
 {
-	elem* ptr = sou.head;
-	if (!sou.elCount)
+	return elCount;
+}
+
+void queue::copy(queue* des)
+{
+	elem* ptr = this->head;
+	if (!this->elCount)
 	{
 		cout << "Source queue is empty;" << endl;
 		return;
 	}
 	while (ptr)
 	{
-		dest.addElem(ptr->val);
+		des->addElem(ptr->val);
 		ptr = ptr->prev;
 	}
 }
-void merge(queue& sou1, queue& sou2, queue& dest)
+void queue::merge(queue* sou, queue* des)
 {
-	elem* ptr = sou1.head;
-	if (!sou1.elCount)
+	elem* ptr = this->head;
+	if (!this->getCount())
 	{
 		cout << "Queue1 is empty;" << endl;
 		ptr = NULL;
 	}
 	while (ptr)
 	{
-		dest.addElem(ptr->val);
-		ptr = ptr->prev;
+		des->addElem(ptr->val);
+		ptr= ptr->prev;
 	}
-	ptr = sou2.head;
-	if (!sou2.elCount)
+	ptr = sou->head;
+	if (!sou->getCount())
 	{
 		cout << "Queue2 is empty;" << endl;
 		return;
 	}
 	while (ptr)
 	{
-		dest.addElem(ptr->val);
+		des->addElem(ptr->val);
 		ptr = ptr->prev;
 	}
 }
 
-int getrange(queue& q)
-{	
-	if (!q.elCount)
-	{
-		cout << "Queue is empty;" << endl;
-		return 0;
-	}
-	elem* ptr = q.head;
-	int i = 0;
-	int min = ptr->val;
-	int max = min;
-	while (ptr)
-	{
-		if (i % 2)
-		{
-			if (min > ptr->val)
-			{
-				min = ptr->val;
-			}
-			if (max < ptr->val)
-			{
-				max = ptr->val;
-			}
-		}
-		i++;
-		ptr = ptr->prev;
-	}
-	return max - min;
-}
