@@ -6,7 +6,9 @@
 class queueProt : protected queue
 {
 public:
-	int getrange(queueProt& q);
+	int getrange();
+	void callMeth(int sw, int x = 0);
+	void callMeth(queueProt* des, queueProt* sou1 = NULL);
 };
 #endif
 

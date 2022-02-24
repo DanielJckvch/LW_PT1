@@ -21,7 +21,7 @@ queue::~queue(void)
 }
 void queue::addElem(int x)
 {
-	if (elCount)
+	if (getCount())
 	{
 		tail->prev = new elem;
 		tail = tail->prev;
@@ -33,7 +33,7 @@ void queue::addElem(int x)
 }
 void queue::ejectElem(void)
 {
-	if (!elCount)
+	if (!getCount())
 	{
 		return;
 	}

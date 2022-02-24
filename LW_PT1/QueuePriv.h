@@ -5,7 +5,11 @@
 #define QueuePrivH
 class queuePriv : private queue
 {
-	int getrange(queuePriv& q);
+public:
+	int getrange();
+	void callMeth(int sw, int x = 0);
+	void callMeth(queuePriv* des, queuePriv* sou1 = NULL);
+
 };
 
 #endif
